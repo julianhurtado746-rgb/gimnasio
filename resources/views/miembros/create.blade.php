@@ -20,6 +20,13 @@
 
             <label>Fecha Nacimiento:</label><br>
             <input type="date" name="fecha_nacimiento" class="w-full border rounded p-2 mb-3"><br>
+            <label>Plan:</label><br>
+<select name="plan_id" required class="w-full border rounded p-2 mb-3">
+    <option value="">Seleccione un plan</option>
+    @foreach($planes as $plan)
+        <option value="{{ $plan->id }}">{{ $plan->nombre }} - ${{ $plan->precio }}</option>
+    @endforeach
+</select><br>
 <button type="submit" style="background-color: blue; color: white; padding: 10px 20px; border: none; cursor: pointer;">
     Guardar Miembro
 </button>

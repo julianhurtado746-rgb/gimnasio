@@ -1,6 +1,6 @@
 <x-app-layout>
     <h1>Editar Plan</h1>
-    <form action="{{ route('planes.update', $plan) }}" method="POST">
+    <form action="{{ route('planes.update', $plan->id) }}" method="POST">
         @csrf
         @method('PUT')
         <label>Nombre:</label>
