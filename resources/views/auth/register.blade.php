@@ -1,3 +1,15 @@
+<style>
+    body, .min-h-screen { background-color: #0a0a0a !important; }
+    /* Cuadro blanco lo dejamos igual para que se lea bien */
+    /* Botón REGISTER en verde Kawasaki */
+    button, .btn, [type="submit"] {
+        background-color: #00a651 !important;
+        border-color: #00a651 !important;
+        color: white !important;
+    }
+    a { color: #00a651 !important; }
+    label { color: #111111 !important; }
+</style> 
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
