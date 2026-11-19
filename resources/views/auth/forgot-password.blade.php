@@ -1,11 +1,11 @@
-<style>
+ <style>
     body, .min-h-screen { background-color: #0a0a0a !important; }
     button, .btn, [type="submit"] {
-        background-color: #00a651 !important;
-        border-color: #00a651 !important;
+        background-color: #ff2d00 !important;
+        border-color: #ff2d00 !important;
         color: white !important;
     }
-    a { color: #00a651 !important; }
+    a { color: #ff2d00 !important; }
     label { color: #111111 !important; }
 </style>
 <x-guest-layout>
