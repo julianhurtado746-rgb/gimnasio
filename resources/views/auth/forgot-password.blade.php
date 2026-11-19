@@ -1,3 +1,13 @@
+<style>
+    body, .min-h-screen { background-color: #0a0a0a !important; }
+    button, .btn, [type="submit"] {
+        background-color: #00a651 !important;
+        border-color: #00a651 !important;
+        color: white !important;
+    }
+    a { color: #00a651 !important; }
+    label { color: #111111 !important; }
+</style>
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600">
         {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
