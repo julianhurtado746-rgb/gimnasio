@@ -33,11 +33,11 @@ class MiembroController extends Controller
         return redirect()->route('miembros.index')->with('success', 'Miembro creado');
     }
 
-    public function edit(Miembro $miembro)
-    {
-        $planes = Plan::all();
-        return view('miembros.edit', compact('miembro', 'planes'));
-    }
+ public function edit(Miembro $miembro)
+{
+    $planes = Plan::all();
+    return view('miembros.edit', compact('miembro', 'planes'));
+}
 
     public function update(Request $request, Miembro $miembro)
     {

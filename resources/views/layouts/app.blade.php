@@ -13,6 +13,17 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+    body { background-color: #F2EFE9 !important; color: #3A3A3A !important; }
+    header { background-color: #FFFFFF !important; }
+    header h2 { color: #4A4A4A !important; font-weight: 800; }
+    .bg-white { background-color: #FFFFFF !important; color: #3A3A3A !important; border: 1px solid #E6DDD3; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    input, select, textarea { background-color: #FAF8F5 !important; color: #3A3A3A !important; border: 1px solid #D8CFC4 !important; border-radius: 10px !important; }
+    label { color: #7A6A5E !important; font-weight: 600; }
+    button { background-color: #D9A679 !important; color: white !important; font-weight: 600 !important; border-radius: 10px !important; border: none !important; }
+    a { color: #A97C50 !important; }
+    th { color: #7A6A5E !important; }
+</style>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">

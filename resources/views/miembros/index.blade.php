@@ -17,6 +17,7 @@
                 <th>Teléfono</th>
                 <th>Email</th>
                 <th>Estado</th>
+                <th>Acciones</th>
             </tr>
             @foreach($miembros as $m)
             <tr>
@@ -25,6 +26,15 @@
                 <td>{{ $m->telefono }}</td>
                 <td>{{ $m->email }}</td>
                 <td>{{ $m->estado }}</td>
+                <td>
+    <a href="{{ route('miembros.show', $m->id) }}" style="background:#D6E8FF; padding:5px 8px; border-radius:8px;">Ver</a>
+    <a href="{{ route('miembros.edit', $m->id) }}" style="background:#FFE9A8; padding:5px 8px; border-radius:8px;">Editar</a>
+    <form action="{{ route('miembros.destroy', $m->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('¿Seguro quieres eliminar?')">
+        @csrf
+        @method('DELETE')
+        <button type="submit" style="background:#FFC2C2; padding:5px 8px; border-radius:8px; border:none;">Eliminar</button>
+    </form>
+</td>
             </tr>
             @endforeach
         </table>
