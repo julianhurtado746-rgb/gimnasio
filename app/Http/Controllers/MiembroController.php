@@ -10,7 +10,7 @@ class MiembroController extends Controller
 {
     public function index()
     {
-        $miembros = Miembro::with('plan')->get();
+        $miembros = Miembro::all();
         return view('miembros.index', compact('miembros'));
     }
 
@@ -23,38 +23,50 @@ class MiembroController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required',
-            'cedula' => 'required|unique:miembros',
+            'nombre' => 'required|string|max:255',
+            'email' => 'required|email',
+            'telefono' => 'required|string',
             'plan_id' => 'required|exists:planes,id',
         ]);
 
         Miembro::create($request->all());
 
-        return redirect()->route('miembros.index')->with('success', 'Miembro creado');
+        return redirect()->route('miembros.index')->with('success', 'Miembro creado correctamente');
     }
 
- public function edit(Miembro $miembro)
-{
-    $planes = Plan::all();
-    return view('miembros.edit', compact('miembro', 'planes'));
-}
+    public function edit($id)
+    {
+        $miembro = Miembro::findOrFail($id);
+        $planes = Plan::all();
+        return view('miembros.edit', compact('miembro', 'planes'));
+    }
 
-    public function update(Request $request, Miembro $miembro)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'nombre' => 'required',
-            'cedula' => 'required|unique:miembros,cedula,' . $miembro->id,
+            'nombre' => 'required|string|max:255',
+            'email' => 'required|email',
+            'telefono' => 'required|string',
             'plan_id' => 'required|exists:planes,id',
         ]);
 
-        $miembro->update($request->all());
+        $miembro = Miembro::findOrFail($id);
 
-        return redirect()->route('miembros.index')->with('success', 'Miembro actualizado');
+        $miembro->update([
+            'nombre' => $request->nombre,
+            'email' => $request->email,
+            'telefono' => $request->telefono,
+            'plan_id' => $request->plan_id,
+        ]);
+
+        return redirect()->route('miembros.index')->with('success', 'Miembro actualizado correctamente');
     }
 
-    public function destroy(Miembro $miembro)
+    public function destroy($id)
     {
+        $miembro = Miembro::findOrFail($id);
         $miembro->delete();
-        return redirect()->route('miembros.index')->with('success', 'Miembro eliminado');
+
+        return redirect()->route('miembros.index')->with('success', 'Miembro eliminado correctamente');
     }
 }
